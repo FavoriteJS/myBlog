@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(All);
+export default connect(mapStateToProps)(All); // 连接组件   将store的属性赋给props

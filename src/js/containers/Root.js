@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
+import { Router, Route, IndexRoute, useRouterHistory, browserHistory} from 'react-router';
 // import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import { CONFIG } from '../constants/Config.js';
@@ -14,23 +14,23 @@ import '../../css/index.scss';
 import '../../css/list.scss';
 import '../../css/nprogress.scss';
 
-setTimeout(function(){
-  debugger
-  //利用iframe的onload事件刷新页面
-  document.title = CONFIG.title;
-  var iframe = document.createElement('iframe');
-  iframe.style.visibility = 'hidden';
-  iframe.style.width = '1px';
-  iframe.style.height = '1px';
-  iframe.onload = function () {
-    setTimeout(function () {
-      document.body.removeChild(iframe);
-    }, 0);
-  };
-  document.body.appendChild(iframe);
-},0);
+// setTimeout(function(){
+//   // debugger
+//   //利用iframe的onload事件刷新页面
+//   // document.title = CONFIG.title;
+//   // var iframe = document.createElement('iframe');
+//   // iframe.style.visibility = 'hidden';
+//   // iframe.style.width = '1px';
+//   // iframe.style.height = '1px';
+//   // iframe.onload = function () {
+//   //   setTimeout(function () {
+//   //     document.body.removeChild(iframe);
+//   //   }, 0);
+//   // };
+//   // document.body.appendChild(iframe);
+// },0);
 
-const appHistory = useRouterHistory(createHashHistory)();
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 var All = (location, cb) => {
   document.title = CONFIG.titleLoad;
